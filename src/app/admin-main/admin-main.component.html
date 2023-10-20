@@ -1,0 +1,30 @@
+<div>
+<button (click) = "logout()" class="top-right3" style="background-color:beige"> Logout</button>
+<h2>Admin Dashboard</h2>
+</div>
+
+<div>
+  <button (click)="showUserManagement()">User Management</button> &nbsp;&nbsp;
+  <button (click)="showAppointmentManagement()">Appointment Management</button> &nbsp;&nbsp;
+  <button (click)="showDoctorManagement()">Doctor Management</button> &nbsp;&nbsp;
+
+</div>
+
+<!-- Display area for selected functionality -->
+<div>
+  <ng-container *ngIf="displayUserManagement">
+    <app-admin-users></app-admin-users>
+  </ng-container>
+
+  <ng-container *ngIf="displayAppointmentManagement">
+    <app-admin-appointments></app-admin-appointments>
+  </ng-container>
+
+  <ng-container *ngIf="displayAppointmentCancellation">
+    <app-admin-cancel-appointments></app-admin-cancel-appointments>
+  </ng-container>
+  <ng-container *ngIf="displayDoctorManagement">
+    <app-admin-doctors></app-admin-doctors>
+  </ng-container>
+</div>
+

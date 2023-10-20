@@ -1,0 +1,36 @@
+<h2> Welcome to the registration page</h2>
+<form #userForm="ngForm"  (ngSubmit)="registerUser()">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="users.username" name="username" required>
+    </div>
+    <div>
+        <label for="password"> Password:</label>
+        <input type="password" id="password" [(ngModel)]="users.password" name="password" required >
+    </div>
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" [(ngModel)]="users.firstName" name="firstName" required>
+    </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" [(ngModel)]="users.lastName" name="lastName" required>
+    </div>
+    <div>
+        <label for="Bdate">Birth Date:</label>
+        <input type="datetime" id="Bdate" [(ngModel)]="users.Bdate" name="Bdate" required>
+    </div>
+    <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" [(ngModel)]="users.city" name="username" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="users.email" name="email" required>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" [(ngModel)]="users.description" name="description" >
+    </div>
+    <button type="submit" [disabled]="!userForm.form.valid" >Register</button>
+</form>

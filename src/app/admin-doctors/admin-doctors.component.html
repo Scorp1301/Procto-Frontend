@@ -1,0 +1,44 @@
+<div >
+    <table border="solid" >
+        <thead>
+            <th>Doctor Id</th>
+            <th>Doctor Name</th>
+            <th>Specialization</th>
+            <th>City &nbsp;</th>
+            <th>Rating</th>
+
+        </thead>
+        <tr *ngFor="let doctor of doctors" class="doctor-list" >
+            <td>
+                <p>{{ doctor.doctorid }}</p>
+             </td><td>   <p>{{ doctor.doctorName }}</p>
+            </td>
+             <td>   <p>{{ doctor.specialization }}</p>
+             </td><td> <p>{{ doctor.city }}</p>
+             </td><td> <p>{{doctor.ratings}}</p>
+             </td><td>
+
+
+
+    
+    <p><button (click)="editDoctor(doctor)" style="background-color: blue; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Edit</button> &nbsp;
+  <button (click)="deleteDoctor(doctor.doctorid)"style="background-color: red; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Delete</button></p>
+</td>
+</tr>
+  <br>
+
+</table>
+</div>
+
+<div *ngIf="showDoctorForm">
+    <h4>{{ editingDoctor ? 'Edit Doctor' : 'Add Doctor' }}</h4>
+    <form (submit)="saveDoctor()">
+      <input type="text" [(ngModel)]="doctorForm.doctorName" name="doctorName" placeholder="Doctor Name" required>
+      <input type="text" [(ngModel)]="doctorForm.specialization" name="specialization" placeholder="Specialization" required>
+      <input type="text" [(ngModel)]="doctorForm.city" name="city" placeholder="City" required>
+      <input type="email" [(ngModel)]="doctorForm.ratings" name="ratings" placeholder="Rating" required>
+      <button type="submit">{{ editingDoctor ? 'Update' : 'Create' }} Doctor</button>
+    </form>
+  </div>
+
+  <button (click)="addDoctor()">Add Doctor</button>

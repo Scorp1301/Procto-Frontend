@@ -1,0 +1,50 @@
+
+<div>
+    <br>
+    <input type="text" placeholder="Enter Patient Name, Doctor Name" [(ngModel)]="filterText" (input)="filterAndSortAppointments()">
+
+
+</div>
+
+<div>    <table border="solid" >
+        <thead>
+            <th>Appointment Id</th>
+            <th>Patient Id</th>
+            <th>Patient Name</th>
+            <th>Patient Email</th>
+            <th>Booking Date</th>
+            <th>Time Slot</th>
+            <th>Doctor Name</th>
+
+        </thead>
+        <tr *ngFor="let appointment of appointments" class="appointment-list" >
+            <td>
+                <p>{{ appointment.appointmentid }}</p>
+             </td>
+             <td> 
+                  <p>{{ appointment.patientId }}</p>
+            </td>
+             <td>
+                   <p>{{ appointment.patientName }}</p>
+             </td>
+             <td>
+              <p>{{ appointment.useremail }}</p>
+        </td>
+             <td>
+                 <p>{{appointment.bookingDate }}</p>
+             </td>
+             <td> 
+                <p>{{appointment.timeSlot}}</p>
+             </td>
+             <td> 
+                <p>{{appointment.doctorName}}</p>
+             </td>
+             <td> 
+    <!-- <p><button (click)="editAppointment(appointment)" style="background-color: blue; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Edit</button> &nbsp; -->
+  <button (click)="deleteAppointment(appointment.appointmentid)"style="background-color: red; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Cancle Appointment</button>
+  <button (click)="sendConfirmationEmail( appointment)" style="background-color: green; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Send Email</button>
+</tr>
+  <br>
+
+</table>
+</div>

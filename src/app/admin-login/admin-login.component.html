@@ -1,0 +1,20 @@
+<h2 style="color: blueviolet;">Admin Login page</h2>
+<form #userForm="ngForm" (ngSubmit)="loginAdmin()">
+    <div>
+        <label for="username"> Username:</label>
+        <input type="text" id="username" [(ngModel)]="admin.username" name="username" required>
+    </div>
+    <br>
+     <div>
+        <label for="password"> Password:</label>
+        <input type="password" id="password" [(ngModel)]="admin.password" name="password" required minlength="8">
+       
+    </div>
+
+    <br>
+    <button type="submit"> Login </button> &nbsp;
+
+    <button (click) = "user()" style="background-color:rgb(31, 214, 153)"> User Login</button>
+
+
+</form>

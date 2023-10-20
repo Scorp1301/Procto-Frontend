@@ -1,0 +1,54 @@
+<div >
+    <table border="solid" >
+        <thead>
+            <th>User Id</th>
+            <th>UserName</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth Date</th>
+            <th>City &nbsp;</th>
+            <th>Email</th>
+            <th>Description</th>
+            <th>Actions</th>
+
+        </thead>
+        <tr *ngFor="let user of users" class="user-list" >
+            <td>
+                <p>{{ user.userid }}</p>
+             </td><td>   <p>{{ user.username }}</p>
+            </td>
+             <td>   <p>{{ user.firstName }}</p>
+             </td><td> <p>{{ user.lastName }}</p>
+             </td><td> <p>{{ user.Bdate }}</p>
+             </td><td>  <p>{{ user.city }}</p>
+             </td> <td>   <p>{{ user.email }}</p>
+             </td><td> <p>{{ user.description }}</p>
+                </td><td>
+
+
+
+    
+    <p><button (click)="editUser(user)" style="background-color: blue; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Edit</button> &nbsp;
+  <button (click)="deleteUser(user.userid)"style="background-color: red; color: white; border: none; border-radius: 4px; padding: 10px 20px;">Delete</button></p>
+</td>
+</tr>
+  <br>
+
+</table>
+</div>
+<div *ngIf="showUserForm">
+    <h4>{{ editingUser ? 'Edit User' : 'Add User' }}</h4>
+    <form (submit)="saveUser()">
+      <input type="text" [(ngModel)]="userForm.username" name="username" placeholder="Username" required>
+      <input type="password" [(ngModel)]="userForm.password" name="password" placeholder="Password" required>
+      <input type="text" [(ngModel)]="userForm.firstName" name="firstName" placeholder="First Name" required>
+      <input type="text" [(ngModel)]="userForm.lastName" name="lastName" placeholder="Last Name" required>
+      <input type="date" [(ngModel)]="userForm.Bdate" name="Bdate" required>
+      <input type="text" [(ngModel)]="userForm.city" name="city" placeholder="City" required>
+      <input type="email" [(ngModel)]="userForm.email" name="email" placeholder="Email" required>
+      <input type="text" [(ngModel)]="userForm.description" name="description" placeholder="Description">
+      <button type="submit">{{ editingUser ? 'Update' : 'Create' }} User</button>
+    </form>
+  </div>
+
+  <button (click)="addUser()">Add User</button>

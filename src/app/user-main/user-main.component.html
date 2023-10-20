@@ -1,0 +1,44 @@
+
+<button (click) = "logout()" class="top-right3" style="background-color:beige"> Logout</button>
+<button (click) = "apptable()" class="top-right2" style="background-color:rgb(219, 243, 85)"> Appointments</button>
+<input type="text" placeholder="Enter specialization and city" [(ngModel)]="filterText" (input)="filterAndSortDoctors()">
+
+<select [(ngModel)]="sortField" (change)="filterAndSortDoctors()">
+    <option value="">Sort by</option>
+    <option value="doctorName">Doctor Name</option>
+    <option value="specialization">Specialization</option>
+    <option value="city">City</option>
+    <option value="ratings">Ratings</option>
+</select>
+
+  <div class="doctor-list">
+    <div *ngFor="let doctor of filteredDoctors" class="doctor-item">
+      <h2>{{ doctor.doctorName }}</h2>
+      <p>Specialization: {{ doctor.specialization }}</p>
+      <p>City: {{ doctor.city }}</p>
+      <p>Ratings: {{ doctor.ratings }}</p>
+      <p>Date of Joining: {{ doctor.availableDateTime }}</p>
+      <button (click)="toggleTimeSlots(doctor)">Book Appointment</button>
+  
+      <div *ngIf="doctor.showTimeSlots" class="date-selection">
+        <p>Select a date:</p>
+        <div class="button-grid">
+        <div *ngFor="let date of doctor.dates" class="date-item">
+          <button (click)="showDateTimes(doctor, date.date)" class="clickable-button">{{ date.date }}</button>
+        </div>
+      </div>
+      </div>
+  
+      <div *ngIf="doctor.showDateTimes" class="time-slot-selection">
+        <p>Select a time slot:</p>
+        <div class="button-grid">
+          <div *ngFor="let timeSlot of doctor.selectedDate.timeSlots" class="time-slot-item">
+            <button (click)="confirmBooking(doctor, doctor.selectedDate.date, timeSlot)">Book {{ timeSlot }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

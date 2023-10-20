@@ -1,0 +1,57 @@
+.top-right3{
+    position: absolute;
+    top: 40px;
+    right: 10px;
+  }
+  .top-right2{
+    position: absolute;
+    top: 40px;
+    right: 80px;
+  }
+
+.date-button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.time-button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.button {
+    width: 23%; 
+    margin: 5px;
+  }
+.next-button {
+    clear: both;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .button-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .time-slot-item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .date-item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .clickable-button {
+    background-color: #3498db;
+    color: #f7f7f7;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+  }
+
+  .clicked-button {
+    background-color: #e74c3c;
+  }

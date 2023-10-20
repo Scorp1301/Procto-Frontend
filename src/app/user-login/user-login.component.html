@@ -1,0 +1,21 @@
+<h2 style="color: blueviolet;">Login page</h2>
+<form #userForm="ngForm" (ngSubmit)="midiator()">
+    <div>
+        <label for="username"> Username:</label>
+        <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
+    </div>
+    <br>
+     <div>
+        <label for="password"> Password:</label>
+        <input type="text" id="password" [(ngModel)]="user.password" name="password" required minlength="8">
+       
+    </div>
+    <br>
+    <button type="submit" click="midiator()"> Login </button> &nbsp;
+
+    <button (click) = "register()" style="background-color:rgb(31, 214, 153)"> Register</button>
+    <button (click) = "admin()" style="background-color:rgb(105, 32, 14)"> Admin Login</button>
+
+
+
+</form>
